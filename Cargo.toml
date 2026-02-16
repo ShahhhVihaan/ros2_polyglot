@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "rust_talker",
+    "rust_listener",
+]
+resolver = "2"

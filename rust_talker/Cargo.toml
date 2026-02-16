@@ -1,0 +1,9 @@
+[package]
+name = "my_ros_z_project"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+ros-z = { git = "https://github.com/ZettaScaleLabs/ros-z.git" }
+ros-z-msgs = {git = "https://github.com/ZettaScaleLabs/ros-z.git" }
+tokio = { version = "1", features = ["full"] }  # Async runtime
