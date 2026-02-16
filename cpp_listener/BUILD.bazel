@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "listener",
+    srcs = ["src/listener.cpp"],
+    deps = [
+        "@rclcpp",
+        "//:std_msgs_cc",
+    ],
+)

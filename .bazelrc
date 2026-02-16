@@ -1,0 +1,21 @@
+# ros central registry first, then fall back to bazel central registry
+common --registry=https://intrinsic-opensource.github.io/ros-central-registry \
+       --registry=https://bcr.bazel.build
+
+build --@rmw_implementation//:rmw=rmw_zenoh_cpp
+
+build --cxxopt="-std=c++17"
+
+build --action_env="BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1"
+common --incompatible_strict_action_env
+
+common --test_env=ROS_HOME=".ros"
+
+common --incompatible_default_to_explicit_init_py
+
+test --sandbox_default_allow_network=false
+
+# required when using a nightly-only Rust toolchain
+build --@rules_rust//rust/toolchain/channel=nightly
+
+run --action_env=AMENT_PREFIX_PATH=""

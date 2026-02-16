@@ -1,0 +1,10 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary")
+
+cc_binary(
+    name = "talker",
+    srcs = ["src/talker.cpp"],
+    deps = [
+        "@rclcpp",
+        "//:std_msgs_cc",
+    ],
+)

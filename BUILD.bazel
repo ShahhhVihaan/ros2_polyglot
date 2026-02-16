@@ -1,0 +1,11 @@
+load("@rosidl_generator_cpp//:rules.bzl", "cc_ros_library")
+
+package(default_visibility = ["//visibility:public"])
+
+# generate cc bindings for the std_msgs types we use
+cc_ros_library(
+    name = "std_msgs_cc",
+    deps = [
+        "@std_msgs//msg:String",
+    ],
+)
